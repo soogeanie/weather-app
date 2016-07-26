@@ -1,3 +1,17 @@
-#Weather App Codebase
+# Weather App Codebase
 
-https://soogeanie.github.io/weather-app/index.html
+#### How to run this project
+
+
+
+1. download/clone/fork this repo and then install the devDependencies
+
+   ```
+   $ npm install
+   ```
+
+2. start up the server
+
+   ```
+   $ npm run dev
+   ```
