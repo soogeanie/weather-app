@@ -1,0 +1,38 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "author": "Sujin Minnich <sujinminnich@gmail.com>",
+  "description": "Weather App assignment for class",
+  "license": "ISC",
+
+  "main": "index.js",
+
+  "scripts": {
+    "scss": "node-sass --output-style compressed -o dist/stylesheets src/stylesheets",
+    "autoprefixer": "postcss -u autoprefixer -r dist/stylesheets/*",
+    "uglify": "mkdir -p dist/scripts && ./node_modules/uglify-js/bin/uglifyjs src/scripts/*.js -m -o dist/scripts/app.js && uglifyjs src/scripts/*.js -m -c -o dist/scripts/app.min.js",
+    "imagemin": "imagemin src/images dist/images -p",
+    "build:css": "npm run scss && npm run autoprefixer",
+    "build:js": "npm run uglify",
+    "build:all": "npm run build:css && npm run build:js && npm run imagemin",
+    "watch:css": "./node_modules/onchange/cli.js 'src/stylesheets/*.scss' -- npm run build:css",
+    "watch:js": "./node_modules/onchange/cli.js 'src/scripts/*.js' -- npm run build:js",
+    "dev": "./node_modules/parallelshell/index.js 'npm run start' 'npm run watch:css' 'npm run watch:js'",
+    "start": "node ./node_modules/http-server/bin/http-server ./dist"
+  },
+
+  "devDependencies": {
+    "node-sass": "3.8.0",
+    "autoprefixer": "6.3.6",
+    "postcss-cli": "2.5.2",
+    "uglify-js": "2.7.0",
+    "imagemin-cli": "3.0.0",
+    "onchange": "2.5.0",
+    "parallelshell": "2.0.0",
+    "http-server": "0.9.0"
+  },
+
+  "engines": {
+    "node": "4.4.7"
+  }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sujin's Weather App</title>
+
+    <link href="stylesheets/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/flexboxgrid/6.3.0/flexboxgrid.min.css" type="text/css" >
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="stylesheets/font-awesome.min.css">
+    <link href="stylesheets/main.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <main>
+        <div class="container">
+          <div class="row search-container" id="search">
+            <div class="col-xs-12">
+              <h1>What's the weather?</h1>
+
+              <form id="weather-form">
+                <input type="text" id="location" placeholder="city, state">
+                <button type="submit" id="submit-location">Weather Me!</button>
+              </form>
+            </div><!-- /.col-xs-12 -->
+          </div><!-- /.row#search -->
+
+          <div class="row results-container" id="results">
+            <div class="col-xs-12">
+              <div class="results" id="weather-results"></div><!-- /#weather-results -->
+
+              <div class="results" id="giphy-results"></div><!-- /#giphy-results -->
+            </div><!-- /.col-xs-12 -->
+          </div><!-- /.row#results -->
+        </div><!-- /.container -->
+      </main>
+    </div><!--/.wrapper -->
+
+    <script id="weather-results-template" type="text/x-handlebars-template">
+      <h1>{{location}}</h1>
+      <h2>Currently: {{temperature}}&deg; F</h2>
+    </script>
+
+    <script id="giphy-results-template" type="text/x-handlebars-template">
+      <img src="{{url}}">
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v4.0.5.js" charset="utf-8"></script>
+    <script src="scripts/app.min.js"></script>
+  </body>
+</html>
